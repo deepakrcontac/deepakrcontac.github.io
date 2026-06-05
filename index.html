@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Deepak R — Software Engineer</title>
+<meta name="description" content="Deepak R | M.Tech Software Engineering @ VIT Vellore | Full Stack Developer | Product Builder"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#060812;
+  --card:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.08);
+  --cyan:#00e5ff;
+  --purple:#a855f7;
+  --text:#eef2ff;
+  --muted:#8b9cc8;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+
+/* CANVAS */
+#cv{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(6,8,18,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--cyan);}
+.nav-r{display:flex;gap:20px;align-items:center;}
+.nav-r a{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.nav-r a:hover{color:var(--cyan);}
+.hire-btn{background:var(--cyan);color:#000 !important;padding:7px 18px;border-radius:50px;font-weight:700;font-size:.8rem;}
+
+/* SECTIONS */
+section{position:relative;z-index:1;padding:90px 5%;}
+.max{max-width:1000px;margin:0 auto;}
+.label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:8px;}
+.title{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.03em;margin-bottom:12px;}
+.sub{color:var(--muted);font-size:.9rem;margin-bottom:48px;max-width:480px;line-height:1.7;}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.18);border-radius:50px;padding:5px 14px;font-size:.78rem;color:var(--cyan);margin-bottom:24px;}
+.dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:blink 1.8s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;letter-spacing:-.05em;line-height:1;margin-bottom:16px;}
+h1 em{color:var(--cyan);font-style:normal;}
+.role{font-size:clamp(.95rem,2vw,1.15rem);color:var(--muted);margin-bottom:10px;}
+.tagline{font-size:clamp(.9rem,1.6vw,1rem);color:rgba(238,242,255,.7);max-width:520px;line-height:1.7;margin-bottom:36px;}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:56px;}
+.btn-p{background:var(--cyan);color:#000;padding:11px 24px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.85rem;transition:all .2s;}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,229,255,.35);}
+.btn-s{background:transparent;color:var(--text);padding:11px 24px;border-radius:50px;font-size:.85rem;border:1px solid var(--border);text-decoration:none;transition:all .2s;}
+.btn-s:hover{border-color:var(--cyan);color:var(--cyan);}
+.stats{display:flex;flex-wrap:wrap;gap:36px;}
+.st-n{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:var(--cyan);}
+.st-l{font-size:.75rem;color:var(--muted);margin-top:2px;}
+
+/* ABOUT */
+#about{background:linear-gradient(to bottom,var(--bg),#0a0f1f);}
+.about-g{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;}
+.about-p{color:var(--muted);line-height:1.8;font-size:.92rem;margin-bottom:14px;}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.tag{background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.14);color:var(--cyan);padding:5px 13px;border-radius:50px;font-size:.78rem;}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;}
+.info-card h4{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:16px;font-size:.95rem;}
+.ir{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:.85rem;}
+.ir:last-child{border:none;}
+.ir span:first-child{color:var(--muted);}
+.ir span:last-child{font-weight:500;}
+.open{color:#4ade80 !important;}
+
+/* SKILLS */
+#skills{background:#0a0f1f;}
+.sk-g{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.sk-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:all .25s;}
+.sk-card:hover{border-color:var(--cyan);transform:translateY(-3px);}
+.sk-icon{font-size:1.3rem;margin-bottom:10px;}
+.sk-card h4{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:10px;}
+.sk-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.sk-t{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);padding:3px 9px;border-radius:5px;font-size:.73rem;}
+
+/* PROJECTS */
+#projects{background:var(--bg);}
+.pr-g{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.pr-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .25s;display:flex;flex-direction:column;}
+.pr-card:hover{border-color:rgba(168,85,247,.4);transform:translateY(-4px);box-shadow:0 20px 50px rgba(168,85,247,.08);}
+.pr-card.big{grid-column:1/-1;}
+.pr-badge{display:inline-block;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);color:#fbbf24;padding:3px 10px;border-radius:50px;font-size:.72rem;font-weight:700;margin-bottom:12px;}
+.pr-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;margin-bottom:8px;letter-spacing:-.02em;}
+.pr-desc{color:var(--muted);font-size:.86rem;line-height:1.65;margin-bottom:16px;flex:1;}
+.pr-techs{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;}
+.pr-tech{background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.18);color:#c084fc;padding:3px 9px;border-radius:5px;font-size:.73rem;}
+.pr-points{list-style:none;margin-bottom:16px;}
+.pr-points li{font-size:.84rem;color:var(--muted);padding:3px 0 3px 14px;position:relative;line-height:1.5;}
+.pr-points li::before{content:'›';position:absolute;left:0;color:var(--cyan);}
+
+/* HACKATHONS */
+#hack{background:#0a0f1f;}
+.hk-g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.hk-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:all .25s;position:relative;overflow:hidden;}
+.hk-card:hover{transform:translateY(-3px);border-color:var(--cyan);}
+.hk-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--cyan),var(--purple));opacity:0;transition:.3s;}
+.hk-card:hover::after{opacity:1;}
+.hk-prize{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;margin-bottom:4px;}
+.prize-gold{color:#fbbf24;}
+.prize-semi{color:var(--cyan);}
+.prize-bronze{color:#f97316;}
+.hk-event{font-size:.85rem;font-weight:600;margin-bottom:3px;}
+.hk-org{font-size:.78rem;color:var(--muted);}
+
+/* CONTACT */
+#contact{background:var(--bg);}
+.ct-g{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.ct-intro{font-size:1rem;color:var(--muted);line-height:1.75;margin-bottom:28px;}
+.ct-item{display:flex;align-items:center;gap:14px;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;text-decoration:none;color:var(--text);transition:all .2s;}
+.ct-item:hover{border-color:var(--cyan);transform:translateX(4px);}
+.ct-ic{width:36px;height:36px;background:rgba(0,229,255,.08);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.ct-d{font-size:.75rem;color:var(--muted);}
+.ct-v{font-size:.88rem;font-weight:500;}
+.form{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;}
+.form h4{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:20px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:5px;}
+.fg input,.fg textarea{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:9px;padding:10px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:.87rem;outline:none;transition:border .2s;}
+.fg input:focus,.fg textarea:focus{border-color:var(--cyan);}
+.fg textarea{height:90px;resize:none;}
+.fsub{width:100%;background:var(--cyan);color:#000;border:none;padding:12px;border-radius:9px;font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .2s;}
+.fsub:hover{background:#fff;}
+
+footer{position:relative;z-index:1;text-align:center;padding:28px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;}
+footer b{color:var(--cyan);}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.on{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  .nav-r a:not(.hire-btn){display:none;}
+  .about-g,.ct-g,.pr-g{grid-template-columns:1fr;}
+  .pr-card.big{grid-column:auto;}
+  .sk-g{grid-template-columns:repeat(2,1fr);}
+  .hk-g{grid-template-columns:repeat(2,1fr);}
+  .stats{gap:20px;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="cv"></canvas>
+
+<nav>
+  <div class="logo">DR/</div>
+  <div class="nav-r">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#hack">Wins</a>
+    <a href="#contact" class="hire-btn">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="max">
+    <div class="hero-badge"><span class="dot"></span> Open to Internships & Full-time Roles</div>
+    <h1>DEEPAK<br/><em>R.</em></h1>
+    <p class="role">M.Tech Software Engineering @ VIT Vellore &nbsp;·&nbsp; CGPA 7.67</p>
+    <p class="tagline">Full Stack Developer &amp; Product Builder. I build scalable apps, AI-powered tools, and real-world products used by real people.</p>
+    <div class="btns">
+      <a href="#projects" class="btn-p">View My Work</a>
+      <a href="mailto:deepak.rcontact@gmail.com" class="btn-s">✉ Email Me</a>
+      <a href="https://www.linkedin.com/in/deepak-r-013070398/" target="_blank" class="btn-s">LinkedIn ↗</a>
+      <a href="https://github.com/deepakr" target="_blank" class="btn-s">GitHub ↗</a>
+    </div>
+    <div class="stats">
+      <div><div class="st-n" data-t="8">0+</div><div class="st-l">Hackathon Awards</div></div>
+      <div><div class="st-n" data-t="4">0</div><div class="st-l">Major Products</div></div>
+      <div><div class="st-n">7.67</div><div class="st-l">CGPA</div></div>
+      <div><div class="st-n" data-t="5">0</div><div class="st-l">Hackathons</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="max reveal">
+    <div class="label">About</div>
+    <div class="about-g">
+      <div>
+        <h2 class="title">Engineer &amp; Product Builder</h2>
+        <p class="about-p">I'm a 2nd-year M.Tech Integrated Software Engineering student at VIT Vellore, building real products that solve real problems.</p>
+        <p class="about-p">I've competed at IIT Bombay, IIT Delhi &amp; NIT Calicut, built a campus super-app (VITLoop) actively used at VIT, and led club finances for a year. I focus on full-stack web development, product thinking, and AI solutions.</p>
+        <div class="tags">
+          <span class="tag">Full Stack</span><span class="tag">Product Design</span><span class="tag">AI / ML</span><span class="tag">System Design</span><span class="tag">Startup Thinking</span>
+        </div>
+      </div>
+      <div class="info-card">
+        <h4>Quick Facts</h4>
+        <div class="ir"><span>Degree</span><span>B.Tech + M.Tech (Int.)</span></div>
+        <div class="ir"><span>Branch</span><span>Software Engineering</span></div>
+        <div class="ir"><span>University</span><span>VIT Vellore</span></div>
+        <div class="ir"><span>CGPA</span><span>7.67 / 10</span></div>
+        <div class="ir"><span>12th</span><span>83.17% (Bio-Maths)</span></div>
+        <div class="ir"><span>10th</span><span>68.20% (SSLC)</span></div>
+        <div class="ir"><span>Location</span><span>Vellore, TN</span></div>
+        <div class="ir"><span>Status</span><span class="open">✓ Available</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="max reveal">
+    <div class="label">Skills</div>
+    <h2 class="title">Tech Stack</h2>
+    <div class="sk-g">
+      <div class="sk-card"><div class="sk-icon">⚡</div><h4>Languages</h4><div class="sk-tags"><span class="sk-t">JavaScript</span><span class="sk-t">TypeScript</span><span class="sk-t">Java</span><span class="sk-t">Python</span><span class="sk-t">SQL</span></div></div>
+      <div class="sk-card"><div class="sk-icon">🎨</div><h4>Frontend</h4><div class="sk-tags"><span class="sk-t">React.js</span><span class="sk-t">Next.js</span><span class="sk-t">Tailwind CSS</span><span class="sk-t">HTML/CSS</span></div></div>
+      <div class="sk-card"><div class="sk-icon">🔧</div><h4>Backend</h4><div class="sk-tags"><span class="sk-t">Node.js</span><span class="sk-t">Express.js</span><span class="sk-t">REST APIs</span><span class="sk-t">Socket.io</span></div></div>
+      <div class="sk-card"><div class="sk-icon">🗄️</div><h4>Database</h4><div class="sk-tags"><span class="sk-t">MongoDB</span><span class="sk-t">MySQL</span><span class="sk-t">Firebase</span><span class="sk-t">PostgreSQL</span></div></div>
+      <div class="sk-card"><div class="sk-icon">☁️</div><h4>Tools</h4><div class="sk-tags"><span class="sk-t">Git</span><span class="sk-t">GitHub</span><span class="sk-t">Docker</span><span class="sk-t">Vercel</span><span class="sk-t">Figma</span></div></div>
+      <div class="sk-card"><div class="sk-icon">🧠</div><h4>CS Core</h4><div class="sk-tags"><span class="sk-t">DSA</span><span class="sk-t">OOP</span><span class="sk-t">DBMS</span><span class="sk-t">System Design</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="max reveal">
+    <div class="label">Projects</div>
+    <h2 class="title">What I've Built</h2>
+    <p class="sub">Real products solving real problems — not just college assignments.</p>
+    <div class="pr-g">
+
+      <div class="pr-card big">
+        <span class="pr-badge">🏆 Flagship — Live Product</span>
+        <div class="pr-title">VITLoop — Campus Super App</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div>
+            <p class="pr-desc">An anonymous campus social ecosystem for VIT students. One app for everything — marketplace, reviews, mentorship, and friend-finding. Actively used at VIT Vellore.</p>
+            <ul class="pr-points">
+              <li>Marketplace — buy, sell, rent items between students</li>
+              <li>Anonymous faculty review with Green/Red voting</li>
+              <li>Junior–Senior mentorship chat</li>
+              <li>Vibe Match — find friends with same interests</li>
+              <li>All interactions are anonymous by default</li>
+            </ul>
+          </div>
+          <div>
+            <div style="background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.1);border-radius:10px;padding:16px;margin-bottom:12px;">
+              <div style="font-size:.75rem;color:var(--cyan);font-weight:700;margin-bottom:6px;">SCALABLE ARCHITECTURE</div>
+              <div style="font-size:.82rem;color:var(--muted);">Multi-campus deployment: VITLoop → SRMLoop → IITMLoop → CITLoop</div>
+            </div>
+            <div style="background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.12);border-radius:10px;padding:16px;">
+              <div style="font-size:.75rem;color:#c084fc;font-weight:700;margin-bottom:6px;">IMPACT</div>
+              <div style="font-size:.82rem;color:var(--muted);">Live and used by VIT Vellore students daily</div>
+            </div>
+          </div>
+        </div>
+        <div class="pr-techs" style="margin-top:16px;">
+          <span class="pr-tech">React.js</span><span class="pr-tech">Node.js</span><span class="pr-tech">MongoDB</span><span class="pr-tech">Socket.io</span><span class="pr-tech">Firebase</span><span class="pr-tech">Tailwind</span>
+        </div>
+      </div>
+
+      <div class="pr-card">
+        <span class="pr-badge">🤖 AI SaaS</span>
+        <div class="pr-title">AI Employees for Business</div>
+        <p class="pr-desc">SaaS platform that replaces repetitive business operations with intelligent AI agents — customer support, HR, sales follow-up, and CRM automation. Saves companies ₹10L+ annually.</p>
+        <div class="pr-techs"><span class="pr-tech">LLMs</span><span class="pr-tech">RAG</span><span class="pr-tech">Python</span><span class="pr-tech">React</span><span class="pr-tech">Node.js</span></div>
+      </div>
+
+      <div class="pr-card">
+        <span class="pr-badge">🎓 EdTech</span>
+        <div class="pr-title">EduBridge</div>
+        <p class="pr-desc">Bridges the gap from education to employment. AI career guidance, skill gap analysis, resume optimization, mock interviews, and job matching in one platform.</p>
+        <div class="pr-techs"><span class="pr-tech">React</span><span class="pr-tech">Python</span><span class="pr-tech">Node.js</span><span class="pr-tech">AI Recommendations</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HACKATHONS -->
+<section id="hack">
+  <div class="max reveal">
+    <div class="label">Achievements</div>
+    <h2 class="title">Hackathon Record</h2>
+    <p class="sub">Competed at IIT Bombay, IIT Delhi, NIT Calicut &amp; more — 8 awards across 5 events.</p>
+    <div class="hk-g">
+      <div class="hk-card"><div class="hk-prize prize-semi">Semi-Finalist</div><div class="hk-event">TechFest 2025</div><div class="hk-org">IIT Bombay</div></div>
+      <div class="hk-card"><div class="hk-prize prize-semi">Semi-Finalist</div><div class="hk-event">Handloom Hack</div><div class="hk-org">IIT Delhi × Govt. of India</div></div>
+      <div class="hk-card"><div class="hk-prize prize-gold">🥈 2nd Prize</div><div class="hk-event">BitAthon</div><div class="hk-org">NIT Calicut — Tathva 2025</div></div>
+      <div class="hk-card"><div class="hk-prize prize-bronze">🥉 3rd Prize</div><div class="hk-event">SnapQuest</div><div class="hk-org">NIT Calicut — Tathva 2025</div></div>
+      <div class="hk-card"><div class="hk-prize prize-gold">🥈 2nd Prize</div><div class="hk-event">Event 1</div><div class="hk-org">Sairam Symposium</div></div>
+      <div class="hk-card"><div class="hk-prize prize-gold">🥈 2nd Prize</div><div class="hk-event">Event 2</div><div class="hk-org">Sairam Symposium</div></div>
+      <div class="hk-card"><div class="hk-prize prize-bronze">🥉 3rd Prize</div><div class="hk-event">Event 3</div><div class="hk-org">Sairam Symposium</div></div>
+      <div class="hk-card"><div class="hk-prize prize-semi">Semi-Finalist</div><div class="hk-event">LithosHack</div><div class="hk-org">CIT Chennai</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="max reveal">
+    <div class="label">Contact</div>
+    <h2 class="title">Let's Connect</h2>
+    <div class="ct-g">
+      <div>
+        <p class="ct-intro">Looking for internships, full-time SWE roles, or collaboration on interesting products. Feel free to reach out — I reply fast.</p>
+        <a href="mailto:deepak.rcontact@gmail.com" class="ct-item">
+          <div class="ct-ic">📧</div><div><div class="ct-d">Email</div><div class="ct-v">deepak.rcontact@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/deepak-r-013070398/" target="_blank" class="ct-item">
+          <div class="ct-ic">💼</div><div><div class="ct-d">LinkedIn</div><div class="ct-v">linkedin.com/in/deepak-r-013070398</div></div>
+        </a>
+        <a href="https://github.com/deepakr" target="_blank" class="ct-item">
+          <div class="ct-ic">💻</div><div><div class="ct-d">GitHub</div><div class="ct-v">github.com/deepakr</div></div>
+        </a>
+        <div class="ct-item" style="cursor:default;">
+          <div class="ct-ic">📍</div><div><div class="ct-d">Location</div><div class="ct-v">Vellore, Tamil Nadu</div></div>
+        </div>
+      </div>
+      <div class="form">
+        <h4>Send a Message</h4>
+        <div class="fg"><label>Name</label><input type="text" placeholder="Your name"/></div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
+        <div class="fg"><label>Message</label><textarea placeholder="Hi Deepak, I'd like to..."></textarea></div>
+        <button class="fsub" onclick="this.textContent='Sent ✓';this.style.background='#4ade80';">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>Built by <b>Deepak R</b> · M.Tech Software Engineering @ VIT Vellore · 2025</p></footer>
+
+<script>
+// Animated mesh gradient background
+const cv = document.getElementById('cv');
+const cx = cv.getContext('2d');
+let W, H;
+function resize(){ W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
+resize(); window.addEventListener('resize', resize);
+
+const orbs = [
+  {x:.2, y:.3, r:.35, c:'rgba(0,229,255,', s:.0003},
+  {x:.8, y:.2, r:.3,  c:'rgba(168,85,247,', s:-.0004},
+  {x:.5, y:.8, r:.4,  c:'rgba(0,229,255,', s:.00025},
+  {x:.1, y:.7, r:.25, c:'rgba(168,85,247,', s:-.0003},
+];
+let t = 0;
+function draw(){
+  cx.clearRect(0,0,W,H);
+  orbs.forEach(o => {
+    const x = (o.x + Math.sin(t * o.s * 1000 + o.r) * .12) * W;
+    const y = (o.y + Math.cos(t * o.s * 1000 + o.r) * .1) * H;
+    const r = o.r * Math.min(W,H);
+    const g = cx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0, o.c + '0.07)');
+    g.addColorStop(1, o.c + '0)');
+    cx.fillStyle = g;
+    cx.fillRect(0,0,W,H);
+  });
+  t++;
+  requestAnimationFrame(draw);
+}
+draw();
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+}, {threshold:.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Counter
+function count(el){
+  const target = parseInt(el.dataset.t);
+  if(!target) return;
+  let n = 0, step = Math.ceil(target/30);
+  const iv = setInterval(() => {
+    n = Math.min(n+step, target);
+    el.textContent = n + (target >= 5 ? '+' : '');
+    if(n >= target) clearInterval(iv);
+  }, 35);
+}
+const co = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ count(e.target); co.unobserve(e.target); }});
+}, {threshold:.5});
+document.querySelectorAll('[data-t]').forEach(el => co.observe(el));
+</script>
+</body>
+</html>
